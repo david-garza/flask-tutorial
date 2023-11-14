@@ -31,5 +31,9 @@ def create_app(test_config=None):
     # Registers the init-db for command line use
     from . import db
     db.init_app(app)
+
+    # Registers the auth blueprint
+    from . import auth
+    app.register_blueprint(auth.bp)
     
     return app
